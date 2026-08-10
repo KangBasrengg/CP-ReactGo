@@ -1,5 +1,6 @@
 import React from 'react';
 import { Icon } from '../Icon';
+import { useScrollReveal, useStaggerReveal } from '../../hooks/useScrollReveal';
 
 const team = [
   { name: 'Budi Santoso', role: 'Chief Executive Officer', image: 'https://i.pravatar.cc/150?u=budi' },
@@ -9,12 +10,15 @@ const team = [
 ];
 
 export const About: React.FC = () => {
+  const headerRef = useScrollReveal<HTMLDivElement>();
+  const staggerRef = useStaggerReveal<HTMLDivElement>(100);
+
   return (
     <section id="about" style={{ padding: '80px 0' }}>
       <div className="container">
         
         {/* About section */}
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', marginBottom: '5rem' }}>
+        <div ref={headerRef} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', marginBottom: '5rem' }}>
           <div style={{ 
             display: 'inline-flex', alignItems: 'center', gap: '0.4rem', 
             padding: '0.3rem 0.9rem', 
@@ -41,7 +45,7 @@ export const About: React.FC = () => {
             <h3 style={{ fontSize: '1.35rem' }}>Tim Manajemen</h3>
           </div>
           
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.25rem', justifyContent: 'center' }}>
+          <div ref={staggerRef} style={{ display: 'flex', flexWrap: 'wrap', gap: '1.25rem', justifyContent: 'center' }}>
             {team.map((member, idx) => (
               <div 
                 key={idx} 

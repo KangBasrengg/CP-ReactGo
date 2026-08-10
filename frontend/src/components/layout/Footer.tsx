@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Logo } from '../Logo';
 import { Icon } from '../Icon';
 
@@ -31,15 +32,18 @@ export const Footer: React.FC = () => {
           
           <div style={{ display: 'flex', gap: '3rem', flexWrap: 'wrap' }}>
             {[
-              { title: 'Product', links: ['Features', 'Integrations', 'Pricing', 'Changelog'] },
-              { title: 'Company', links: ['About Us', 'Careers', 'Blog', 'Contact'] },
-              { title: 'Legal', links: ['Privacy Policy', 'Terms of Service'] },
+              { title: 'Product', links: [{name: 'Features', path: '/features'}, {name: 'Integrations', path: '/integrations'}, {name: 'Pricing', path: '/pricing'}, {name: 'Changelog', path: '/changelog'}] },
+              { title: 'Company', links: [{name: 'About Us', path: '/about'}, {name: 'Careers', path: '/careers'}, {name: 'Blog', path: '/blog'}, {name: 'Contact', path: '/contact'}] },
             ].map(section => (
               <div key={section.title}>
                 <h4 style={{ fontSize: '0.85rem', marginBottom: '1.25rem', color: 'var(--color-text-primary)', fontWeight: 600 }}>{section.title}</h4>
                 <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                   {section.links.map(link => (
-                    <li key={link}><a href="#" style={{ color: 'var(--color-text-muted)', fontSize: '0.8rem', fontWeight: 400, transition: 'color 0.2s' }}>{link}</a></li>
+                    <li key={link.name}>
+                      <Link to={link.path} style={{ color: 'var(--color-text-muted)', fontSize: '0.8rem', fontWeight: 400, transition: 'color 0.2s', textDecoration: 'none' }}>
+                        {link.name}
+                      </Link>
+                    </li>
                   ))}
                 </ul>
               </div>

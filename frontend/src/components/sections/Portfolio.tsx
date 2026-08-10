@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from '../Button';
 import { Icon } from '../Icon';
+import { useScrollReveal, useStaggerReveal } from '../../hooks/useScrollReveal';
 
 const projects = [
   {
@@ -27,17 +28,20 @@ const projects = [
 ];
 
 export const Portfolio: React.FC = () => {
+  const headerRef = useScrollReveal<HTMLDivElement>();
+  const staggerRef = useStaggerReveal<HTMLDivElement>(100);
+
   return (
     <section id="portfolio" style={{ padding: '80px 0' }}>
       <div className="container">
-        <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+        <div ref={headerRef} style={{ textAlign: 'center', marginBottom: '3rem' }}>
           <h2>Produk & Portofolio Kami</h2>
           <p style={{ maxWidth: '540px', margin: '0 auto', fontSize: '0.95rem', lineHeight: 1.7 }}>
             Kami telah membangun berbagai produk digital yang mentransformasi cara bisnis beroperasi.
           </p>
         </div>
         
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.25rem' }}>
+        <div ref={staggerRef} style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.25rem' }}>
           {projects.map((project, idx) => (
             <div key={idx} className="glass-card" style={{ padding: 0, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
               <div style={{ 
@@ -50,7 +54,6 @@ export const Portfolio: React.FC = () => {
                 position: 'relative',
                 overflow: 'hidden'
               }}>
-                {/* Decorative circle */}
                 <div style={{
                   position: 'absolute',
                   width: '120px',

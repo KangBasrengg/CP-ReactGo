@@ -1,13 +1,16 @@
 import React from 'react';
+import { useScrollReveal } from '../../hooks/useScrollReveal';
 
 const partners = [
   "Acme Corp", "GlobalTech", "Quantum", "Nexus", "Stark Ind", "Wayne Ent"
 ];
 
 export const Partners: React.FC = () => {
+  const ref = useScrollReveal<HTMLDivElement>();
+
   return (
     <section id="partners" style={{ padding: '2.5rem 0', borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
-      <div className="container">
+      <div className="container" ref={ref}>
         <p style={{ textAlign: 'center', fontSize: '0.8rem', color: 'var(--color-text-muted)', marginBottom: '1.5rem', textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: 500 }}>
           Dipercaya oleh perusahaan inovatif di seluruh dunia
         </p>

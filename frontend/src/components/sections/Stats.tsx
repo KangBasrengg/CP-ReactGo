@@ -1,4 +1,5 @@
 import React from 'react';
+import { useStaggerReveal } from '../../hooks/useScrollReveal';
 
 const stats = [
   { label: 'Total Pelanggan Aktif', value: '2M+' },
@@ -8,10 +9,12 @@ const stats = [
 ];
 
 export const Stats: React.FC = () => {
+  const staggerRef = useStaggerReveal<HTMLDivElement>(100);
+
   return (
     <section id="stats" style={{ padding: '80px 0', position: 'relative' }}>
       <div className="container">
-        <div style={{ 
+        <div ref={staggerRef} style={{ 
           display: 'grid', 
           gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', 
           gap: '1rem',
