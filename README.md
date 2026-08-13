@@ -121,7 +121,7 @@ Project ini menggunakan custom CSS design system bertema **Liquid Glass**:
 
 ## 👥 Kolaborasi
 
-### Untuk Kolaborator (Frontend)
+### Untuk Kolaborator
 
 Sekarang project berada di root direktori. Tidak perlu lagi `cd frontend`.
 1. **Pull terbaru**: `git pull origin main`
