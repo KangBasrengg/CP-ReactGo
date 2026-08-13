@@ -13,7 +13,7 @@ export const ResetPasswordPage: React.FC = () => {
   };
 
   return (
-    <div style={{
+    <div className="section-photo" style={{
       minHeight: '100vh',
       display: 'flex',
       alignItems: 'center',
@@ -21,7 +21,7 @@ export const ResetPasswordPage: React.FC = () => {
       padding: '2rem',
       position: 'relative',
     }}>
-      <div style={{ position: 'absolute', top: '30%', left: '30%', width: '350px', height: '250px', background: 'rgba(99,102,241,0.1)', borderRadius: '50%', filter: 'blur(100px)', pointerEvents: 'none' }} />
+      <div style={{ position: 'absolute', top: '30%', left: '30%', width: '350px', height: '250px', background: 'rgba(232,162,56,0.1)', borderRadius: '50%', filter: 'blur(100px)', pointerEvents: 'none' }} />
 
       <div style={{ width: '100%', maxWidth: '420px', position: 'relative', zIndex: 1 }}>
         <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '2rem' }}>
@@ -32,8 +32,8 @@ export const ResetPasswordPage: React.FC = () => {
           {!sent ? (
             <>
               <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-                <div style={{ width: '48px', height: '48px', borderRadius: '14px', background: 'rgba(99,102,241,0.15)', border: '1px solid rgba(99,102,241,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1rem' }}>
-                  <Icon name="KeyRound" size={22} color="var(--color-accent-violet)" />
+                <div style={{ width: '48px', height: '48px', borderRadius: '14px', background: 'rgba(232,162,56,0.15)', border: '1px solid rgba(232,162,56,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1rem' }}>
+                  <Icon name="KeyRound" size={22} color="var(--color-accent-amber)" />
                 </div>
                 <h2 style={{ fontSize: '1.5rem', marginBottom: '0.5rem' }}>Reset password</h2>
                 <p style={{ fontSize: '0.875rem', marginBottom: 0 }}>Enter your email and we'll send you a reset link</p>

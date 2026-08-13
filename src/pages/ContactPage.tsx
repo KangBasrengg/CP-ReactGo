@@ -17,9 +17,9 @@ export const ContactPage: React.FC = () => {
     <section style={{ padding: '120px 0 80px' }}>
       <div className="container">
         <div ref={headerRef} style={{ textAlign: 'center', marginBottom: '3rem' }}>
-          <h1 style={{ fontSize: '2.75rem', marginBottom: '1rem' }}>Get in touch</h1>
+          <h1 style={{ fontSize: '2.75rem', marginBottom: '1rem' }}>Hubungi Kami</h1>
           <p style={{ maxWidth: '480px', margin: '0 auto', fontSize: '0.95rem', lineHeight: 1.7 }}>
-            Ada pertanyaan atau ingin berdiskusi? Tim kami siap membantu Anda.
+            Punya pertanyaan tentang pengiriman, pre-order, atau jastip? Tim kami siap membantu Anda.
           </p>
         </div>
 
@@ -27,19 +27,20 @@ export const ContactPage: React.FC = () => {
           {/* Contact info */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
             {[
-              { icon: 'Mail', label: 'Email', value: 'hello@cube.dev' },
-              { icon: 'MapPin', label: 'Office', value: 'Jakarta, Indonesia' },
-              { icon: 'Clock', label: 'Hours', value: 'Mon - Fri, 09:00 - 18:00 WIB' },
+              { icon: 'Mail', label: 'Email', value: 'hello@placeholder-name.dev' },
+              { icon: 'Phone', label: 'WhatsApp', value: '+62 812-3456-7890' },
+              { icon: 'MapPin', label: 'Kantor', value: 'Jakarta Selatan, Indonesia' },
+              { icon: 'Clock', label: 'Jam Operasional', value: 'Senin - Sabtu, 08:00 - 20:00 WIB' },
             ].map((item, i) => {
               const ref = useScrollReveal<HTMLDivElement>();
               return (
                 <div ref={ref} key={i} className="glass-card" style={{ padding: '1.5rem', display: 'flex', alignItems: 'center', gap: '1rem' }}>
                   <div style={{
                     width: '40px', height: '40px', borderRadius: '12px',
-                    background: 'rgba(99,102,241,0.1)', border: '1px solid rgba(99,102,241,0.15)',
+                    background: 'rgba(232,162,56,0.1)', border: '1px solid rgba(232,162,56,0.15)',
                     display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0
                   }}>
-                    <Icon name={item.icon} size={18} color="var(--color-accent-violet)" />
+                    <Icon name={item.icon} size={18} color="var(--color-accent-amber)" />
                   </div>
                   <div>
                     <div style={{ fontSize: '0.75rem', color: 'var(--color-text-muted)', fontWeight: 500, marginBottom: '0.15rem' }}>{item.label}</div>
@@ -54,23 +55,23 @@ export const ContactPage: React.FC = () => {
           <div className="glass-card" style={{ padding: '2rem' }}>
             <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
               <div>
-                <label style={{ display: 'block', fontSize: '0.8rem', color: 'var(--color-text-secondary)', marginBottom: '0.4rem', fontWeight: 500 }}>Name</label>
+                <label style={{ display: 'block', fontSize: '0.8rem', color: 'var(--color-text-secondary)', marginBottom: '0.4rem', fontWeight: 500 }}>Nama</label>
                 <div className="glass-input-wrapper">
-                  <input type="text" value={formData.name} onChange={(e) => update('name', e.target.value)} placeholder="Your name" className="glass-input" required />
+                  <input type="text" value={formData.name} onChange={(e) => update('name', e.target.value)} placeholder="Nama lengkap" className="glass-input" required />
                 </div>
               </div>
               <div>
                 <label style={{ display: 'block', fontSize: '0.8rem', color: 'var(--color-text-secondary)', marginBottom: '0.4rem', fontWeight: 500 }}>Email</label>
                 <div className="glass-input-wrapper">
-                  <input type="email" value={formData.email} onChange={(e) => update('email', e.target.value)} placeholder="you@example.com" className="glass-input" required />
+                  <input type="email" value={formData.email} onChange={(e) => update('email', e.target.value)} placeholder="email@contoh.com" className="glass-input" required />
                 </div>
               </div>
               <div>
-                <label style={{ display: 'block', fontSize: '0.8rem', color: 'var(--color-text-secondary)', marginBottom: '0.4rem', fontWeight: 500 }}>Message</label>
+                <label style={{ display: 'block', fontSize: '0.8rem', color: 'var(--color-text-secondary)', marginBottom: '0.4rem', fontWeight: 500 }}>Pesan</label>
                 <textarea
                   value={formData.message}
                   onChange={(e) => update('message', e.target.value)}
-                  placeholder="Tell us about your project..."
+                  placeholder="Ceritakan kebutuhan pengiriman Anda..."
                   className="glass-input"
                   rows={4}
                   required
@@ -84,7 +85,7 @@ export const ContactPage: React.FC = () => {
                 />
               </div>
               <button type="submit" className="btn btn-gradient" style={{ width: '100%', borderRadius: 'var(--glass-radius-sm)', padding: '0.75rem', fontSize: '0.9rem' }}>
-                Send Message <Icon name="Send" size={15} />
+                Kirim Pesan <Icon name="Send" size={15} />
               </button>
             </form>
           </div>

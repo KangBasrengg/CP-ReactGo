@@ -12,10 +12,10 @@ export const Navbar: React.FC = () => {
           <Logo />
         </Link>
         <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-          <Link to="/signin" style={{ fontSize: '0.85rem', fontWeight: 500, color: 'var(--color-text-secondary)', transition: 'color 0.2s', padding: '0.4rem 0.6rem', textDecoration: 'none' }}>Sign in</Link>
+          <Link to="/signin" className="btn btn-secondary" style={{ padding: '0.45rem 1rem', borderRadius: '9999px', fontSize: '0.85rem', fontWeight: 600, textDecoration: 'none' }}>Masuk</Link>
           <Link to="/signup" style={{ textDecoration: 'none' }}>
             <Button className="btn-gradient" icon={<Icon name="ArrowRight" size={14} />} style={{ padding: '0.45rem 1rem', borderRadius: '9999px', fontWeight: 600, fontSize: '0.85rem' }}>
-              Get Started
+              Pesan Sekarang
             </Button>
           </Link>
         </div>

@@ -12,15 +12,33 @@ import { ContactPage } from './ContactPage';
 export const HomePage: React.FC = () => {
   return (
     <>
-      <Hero />
-      <Partners />
-      <Stats />
-      <FeaturesPage />
-      <IntegrationsPage />
-      <Portfolio />
-      <PricingPage />
-      <About />
-      <ContactPage />
+      <div className="section-photo">
+        <Hero />
+      </div>
+      <div className="section-solid">
+        <Partners />
+      </div>
+      <div className="section-photo">
+        <Stats />
+      </div>
+      <div className="section-solid">
+        <FeaturesPage />
+      </div>
+      <div className="section-photo">
+        <IntegrationsPage />
+      </div>
+      <div className="section-solid">
+        <Portfolio />
+      </div>
+      <div className="section-photo">
+        <PricingPage />
+      </div>
+      <div className="section-solid">
+        <About />
+      </div>
+      <div className="section-photo">
+        <ContactPage />
+      </div>
     </>
   );
 };

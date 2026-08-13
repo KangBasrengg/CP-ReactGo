@@ -5,13 +5,13 @@ import { Icon } from '../Icon';
 
 export const Footer: React.FC = () => {
   return (
-    <footer style={{ padding: '3rem 0 2rem', borderTop: '1px solid rgba(255,255,255,0.04)' }}>
+    <footer className="section-solid" style={{ padding: '3rem 0 2rem', borderTop: '1px solid rgba(255,255,255,0.04)' }}>
       <div className="container">
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '3rem', marginBottom: '3rem' }}>
           <div style={{ flex: '1', minWidth: '220px' }}>
             <Logo />
             <p style={{ marginTop: '1rem', maxWidth: '280px', fontSize: '0.85rem', lineHeight: 1.7 }}>
-              Building the future of web applications, one component at a time.
+              Layanan pengiriman barang, open pre-order, dan penitipan pembelian terpercaya di Indonesia.
             </p>
             <div style={{ display: 'flex', gap: '0.75rem', marginTop: '1.25rem' }}>
               {['Twitter', 'Github', 'Linkedin'].map(icon => (
@@ -52,7 +52,7 @@ export const Footer: React.FC = () => {
         </div>
         
         <div style={{ paddingTop: '1.5rem', borderTop: '1px solid rgba(255,255,255,0.04)', textAlign: 'center', color: 'var(--color-text-muted)', fontSize: '0.8rem' }}>
-          &copy; {new Date().getFullYear()} Cube Inc. All rights reserved.
+          &copy; {new Date().getFullYear()} placeholder-name Inc. All rights reserved.
         </div>
       </div>
     </footer>

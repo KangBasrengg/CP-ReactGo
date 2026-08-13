@@ -4,15 +4,15 @@ import { Icon } from '../components/Icon';
 import { ContentPage } from './ContentPage';
 
 const posts = [
-  { title: 'Membangun UI Modern dengan Liquid Glass Design', date: '5 Aug 2026', readTime: '5 min', category: 'Design' },
-  { title: 'Best Practices untuk React + Go Architecture', date: '28 Jul 2026', readTime: '8 min', category: 'Engineering' },
-  { title: 'Mengoptimalkan Performance Web App di 2026', date: '15 Jul 2026', readTime: '6 min', category: 'Performance' },
-  { title: 'Panduan Lengkap: Deployment dengan Go Backend', date: '1 Jul 2026', readTime: '10 min', category: 'DevOps' },
+  { title: 'Tips Packing Aman untuk Pengiriman Barang Pecah Belah', date: '10 Aug 2026', readTime: '5 min', category: 'Tips' },
+  { title: 'Panduan Lengkap Pre-Order Barang dari Korea & Jepang', date: '2 Aug 2026', readTime: '8 min', category: 'Guide' },
+  { title: 'Cara Menghitung Estimasi Ongkir yang Tepat', date: '25 Jul 2026', readTime: '4 min', category: 'Tutorial' },
+  { title: 'Jastip vs Beli Langsung: Mana yang Lebih Hemat?', date: '18 Jul 2026', readTime: '6 min', category: 'Insight' },
 ];
 
 export const BlogPage: React.FC = () => {
   return (
-    <ContentPage badge="BLOG" badgeIcon="BookOpen" title="Insights & articles" subtitle="Tips, tutorial, dan insight dari tim engineering kami.">
+    <ContentPage badge="BLOG" badgeIcon="BookOpen" title="Tips & Artikel" subtitle="Panduan, tips pengiriman, dan insight seputar pre-order dan jastip dari tim kami.">
       <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
         {posts.map((post, i) => {
           const ref = useScrollReveal<HTMLDivElement>();
@@ -21,8 +21,8 @@ export const BlogPage: React.FC = () => {
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.75rem', flexWrap: 'wrap' }}>
                 <span style={{
                   padding: '0.15rem 0.6rem', borderRadius: '9999px', fontSize: '0.7rem', fontWeight: 600,
-                  background: 'rgba(99,102,241,0.12)', color: 'var(--color-accent-violet)',
-                  border: '1px solid rgba(99,102,241,0.15)',
+                  background: 'rgba(32,201,151,0.12)', color: 'var(--color-accent-teal)',
+                  border: '1px solid rgba(32,201,151,0.15)',
                 }}>
                   {post.category}
                 </span>

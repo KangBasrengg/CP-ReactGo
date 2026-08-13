@@ -3,12 +3,12 @@ import { Icon } from '../Icon';
 import type { IconName } from '../Icon';
 
 const featuresList: { title: string; desc: string; icon: IconName }[] = [
-  { title: 'Lightning Fast', desc: 'Built on top of cutting edge tech, resulting in blazing fast performance.', icon: 'Zap' },
-  { title: 'Secure by Default', desc: 'Security is a top priority, we provide you with all the necessary tools.', icon: 'Shield' },
-  { title: 'Easy Integrations', desc: 'Connect your favorite tools easily without writing a single line of code.', icon: 'Puzzle' },
-  { title: 'Customizable', desc: 'Change everything you want with our powerful configuration options.', icon: 'Settings' },
-  { title: 'Analytics', desc: 'Understand your audience with our built-in analytics dashboard.', icon: 'BarChart' },
-  { title: '24/7 Support', desc: 'Our team is here to help you 24/7. Never feel alone again.', icon: 'LifeBuoy' }
+  { title: 'Pengiriman Cepat', desc: 'Layanan same-day dan next-day delivery ke seluruh kota besar di Indonesia dengan armada terpercaya.', icon: 'Zap' },
+  { title: 'Paket Aman & Terjamin', desc: 'Setiap paket diasuransikan dan dikemas dengan standar keamanan tinggi untuk melindungi barang Anda.', icon: 'Shield' },
+  { title: 'Lacak Real-Time', desc: 'Pantau posisi paket Anda secara real-time melalui dashboard atau notifikasi WhatsApp otomatis.', icon: 'MapPin' },
+  { title: 'Open Pre-Order', desc: 'Layanan pre-order barang dari luar negeri maupun dalam negeri dengan sistem pembayaran yang fleksibel.', icon: 'ShoppingCart' },
+  { title: 'Jastip Terpercaya', desc: 'Penitipan pembelian dari marketplace luar negeri, oleh-oleh, atau barang limited edition dengan harga transparan.', icon: 'Package' },
+  { title: 'Dukungan 24/7', desc: 'Tim customer service kami siap membantu Anda kapan saja melalui chat, telepon, atau email.', icon: 'LifeBuoy' }
 ];
 
 export const Features: React.FC = () => {
@@ -16,10 +16,9 @@ export const Features: React.FC = () => {
     <section id="features" style={{ padding: '100px 0', position: 'relative' }}>
       <div className="container">
         <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-          <h2>Packed with incredible features</h2>
+          <h2>Layanan Unggulan Kami</h2>
           <p style={{ maxWidth: '600px', margin: '0 auto' }}>
-            Everything you need to build a powerful web application, right out of the box.
-            No more hunting for third-party libraries.
+            Semua yang Anda butuhkan untuk mengirim, memesan, dan menitipkan barang — dalam satu platform terpercaya.
           </p>
         </div>
         
@@ -29,12 +28,12 @@ export const Features: React.FC = () => {
           gap: '2rem' 
         }}>
           {featuresList.map((feature, idx) => (
-            <div key={idx} className="card" style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+            <div key={idx} className="glass-card" style={{ display: 'flex', flexDirection: 'column', gap: '1rem', padding: '2rem' }}>
               <div style={{ 
                 width: '48px', 
                 height: '48px', 
                 borderRadius: '12px', 
-                background: 'rgba(99, 102, 241, 0.1)', 
+                background: 'rgba(232, 162, 56, 0.1)', 
                 display: 'flex', 
                 alignItems: 'center', 
                 justifyContent: 'center',

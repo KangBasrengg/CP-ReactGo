@@ -15,7 +15,7 @@ export const SignInPage: React.FC = () => {
   };
 
   return (
-    <div style={{
+    <div className="section-photo" style={{
       minHeight: '100vh',
       display: 'flex',
       alignItems: 'center',
@@ -24,8 +24,8 @@ export const SignInPage: React.FC = () => {
       position: 'relative',
     }}>
       {/* Ambient glows */}
-      <div style={{ position: 'absolute', top: '15%', left: '25%', width: '400px', height: '300px', background: 'rgba(99,102,241,0.12)', borderRadius: '50%', filter: 'blur(100px)', pointerEvents: 'none' }} />
-      <div style={{ position: 'absolute', bottom: '20%', right: '25%', width: '350px', height: '250px', background: 'rgba(103,232,249,0.08)', borderRadius: '50%', filter: 'blur(100px)', pointerEvents: 'none' }} />
+      <div style={{ position: 'absolute', top: '15%', left: '25%', width: '400px', height: '300px', background: 'rgba(232,162,56,0.12)', borderRadius: '50%', filter: 'blur(100px)', pointerEvents: 'none' }} />
+      <div style={{ position: 'absolute', bottom: '20%', right: '25%', width: '350px', height: '250px', background: 'rgba(32,201,151,0.08)', borderRadius: '50%', filter: 'blur(100px)', pointerEvents: 'none' }} />
 
       <div style={{ width: '100%', maxWidth: '420px', position: 'relative', zIndex: 1 }}>
         {/* Logo */}

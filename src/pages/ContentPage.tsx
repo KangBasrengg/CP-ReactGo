@@ -21,8 +21,8 @@ export const ContentPage: React.FC<{
           {badge && (
             <div style={{
               display: 'inline-flex', alignItems: 'center', gap: '0.4rem',
-              padding: '0.3rem 0.9rem', background: 'rgba(99,102,241,0.08)',
-              border: '1px solid rgba(99,102,241,0.12)', color: 'var(--color-accent-violet)',
+              padding: '0.3rem 0.9rem', background: 'rgba(32,201,151,0.08)',
+              border: '1px solid rgba(32,201,151,0.12)', color: 'var(--color-accent-teal)',
               borderRadius: '9999px', fontSize: '0.75rem', fontWeight: 600, marginBottom: '1.25rem',
               letterSpacing: '0.04em'
             }}>

@@ -4,15 +4,15 @@ import { Icon } from '../components/Icon';
 import { ContentPage } from './ContentPage';
 
 const positions = [
-  { title: 'Senior Frontend Engineer', team: 'Engineering', location: 'Jakarta / Remote', type: 'Full-time' },
-  { title: 'Backend Engineer (Go)', team: 'Engineering', location: 'Jakarta / Remote', type: 'Full-time' },
-  { title: 'Product Designer', team: 'Design', location: 'Jakarta', type: 'Full-time' },
-  { title: 'DevOps Engineer', team: 'Infrastructure', location: 'Remote', type: 'Full-time' },
+  { title: 'Kurir & Driver Pengiriman', team: 'Operasional', location: 'Jakarta, Bandung, Surabaya', type: 'Full-time' },
+  { title: 'Customer Service Representative', team: 'Customer Experience', location: 'Jakarta / Remote', type: 'Full-time' },
+  { title: 'Warehouse Coordinator', team: 'Logistik', location: 'Jakarta', type: 'Full-time' },
+  { title: 'Social Media & Content Creator', team: 'Marketing', location: 'Remote', type: 'Part-time' },
 ];
 
 export const CareersPage: React.FC = () => {
   return (
-    <ContentPage badge="CAREERS" badgeIcon="Briefcase" title="Join our team" subtitle="Kami mencari orang-orang berbakat untuk membangun masa depan teknologi bersama.">
+    <ContentPage badge="KARIR" badgeIcon="Briefcase" title="Bergabung bersama kami" subtitle="Kami mencari orang-orang yang bersemangat untuk membangun layanan pengiriman terbaik di Indonesia.">
       <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
         {positions.map((pos, i) => {
           const ref = useScrollReveal<HTMLDivElement>();
@@ -33,7 +33,7 @@ export const CareersPage: React.FC = () => {
                 </div>
               </div>
               <button className="btn btn-secondary" style={{ borderRadius: '9999px', fontSize: '0.8rem', padding: '0.5rem 1.25rem' }}>
-                Apply <Icon name="ArrowRight" size={13} />
+                Lamar <Icon name="ArrowRight" size={13} />
               </button>
             </div>
           );

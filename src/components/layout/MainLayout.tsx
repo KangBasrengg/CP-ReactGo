@@ -10,7 +10,7 @@ export const MainLayout: React.FC = () => {
   return (
     <div className="app">
       <Navbar />
-      <main style={{ paddingTop: isAuthPage ? '0' : '72px' }}>
+      <main>
         <Outlet />
       </main>
       {!isAuthPage && <Footer />}

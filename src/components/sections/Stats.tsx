@@ -2,10 +2,10 @@ import React from 'react';
 import { useStaggerReveal } from '../../hooks/useScrollReveal';
 
 const stats = [
-  { label: 'Total Pelanggan Aktif', value: '2M+' },
-  { label: 'Total Pendapatan (USD)', value: '$500M' },
-  { label: 'Transaksi Berhasil', value: '99.9%' },
-  { label: 'Negara Terjangkau', value: '120+' }
+  { label: 'Paket Terkirim', value: '150K+' },
+  { label: 'Pelanggan Aktif', value: '25K+' },
+  { label: 'Tingkat Keberhasilan', value: '99.8%' },
+  { label: 'Kota Terjangkau', value: '350+' }
 ];
 
 export const Stats: React.FC = () => {

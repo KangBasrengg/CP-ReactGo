@@ -3,16 +3,22 @@ import { ContentPage } from './ContentPage';
 
 export const AboutPage: React.FC = () => {
   return (
-    <ContentPage badge="ABOUT US" badgeIcon="Info" title="Our Story" subtitle="Mengenal lebih dekat siapa kami dan apa yang kami lakukan.">
+    <ContentPage badge="TENTANG KAMI" badgeIcon="Info" title="Cerita Kami" subtitle="Mengenal lebih dekat placeholder-name dan layanan yang kami tawarkan.">
       <div className="glass-card" style={{ padding: '2.5rem', display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
         <p style={{ fontSize: '0.95rem', lineHeight: 1.8, marginBottom: 0 }}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          placeholder-name didirikan pada tahun 2023 dengan misi sederhana: mempermudah masyarakat Indonesia 
+          dalam mengirim barang, memesan produk dari luar negeri, dan melakukan penitipan pembelian dengan aman dan transparan.
         </p>
         <p style={{ fontSize: '0.95rem', lineHeight: 1.8, marginBottom: 0 }}>
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          Berawal dari layanan jastip kecil-kecilan antar teman, kini kami telah berkembang menjadi platform 
+          pengiriman dan pre-order yang melayani ribuan pelanggan di seluruh Indonesia. Kami bekerja sama dengan 
+          ekspedisi-ekspedisi terpercaya seperti JNE, SiCepat, J&T, dan lainnya untuk memastikan setiap paket 
+          sampai dengan selamat.
         </p>
         <p style={{ fontSize: '0.95rem', lineHeight: 1.8, marginBottom: 0 }}>
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.
+          Visi kami adalah menjadi platform one-stop solution untuk kebutuhan pengiriman dan pembelian lintas negara, 
+          dengan mengutamakan kepercayaan, kecepatan, dan harga yang fair. Setiap transaksi dilindungi asuransi 
+          dan pelanggan dapat melacak status pengiriman secara real-time kapan saja.
         </p>
       </div>
     </ContentPage>

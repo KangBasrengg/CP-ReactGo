@@ -4,39 +4,39 @@ import { Icon } from '../Icon';
 
 const plans = [
   {
-    name: 'Starter',
-    price: '$29',
-    period: '/month',
-    desc: 'Perfect for small projects and solo developers.',
-    features: ['Up to 5 projects', 'Basic analytics', '24-hour support response time', 'Community access'],
+    name: 'Reguler',
+    price: 'Rp15K',
+    period: '/kg',
+    desc: 'Pengiriman standar dengan estimasi 3-5 hari kerja ke seluruh Indonesia.',
+    features: ['Berat maks. 30kg', 'Tracking otomatis', 'Asuransi dasar', 'Notifikasi WhatsApp'],
     isPopular: false
   },
   {
-    name: 'Pro',
-    price: '$99',
-    period: '/month',
-    desc: 'Ideal for growing teams and serious businesses.',
-    features: ['Unlimited projects', 'Advanced analytics', '1-hour support response time', 'Custom domains', 'Team collaboration'],
+    name: 'Express',
+    price: 'Rp35K',
+    period: '/kg',
+    desc: 'Pengiriman cepat same-day atau next-day untuk kebutuhan mendesak.',
+    features: ['Same-day / next-day', 'Prioritas pengiriman', 'Asuransi penuh', 'Tracking real-time', 'Packaging premium'],
     isPopular: true
   },
   {
-    name: 'Enterprise',
+    name: 'Bisnis',
     price: 'Custom',
     period: '',
-    desc: 'For large scale organizations with specific needs.',
-    features: ['Dedicated infrastructure', 'Custom integrations', '24/7 phone support', 'SLA guaranteed', 'Dedicated account manager'],
+    desc: 'Solusi pengiriman khusus untuk pelaku bisnis dan e-commerce skala besar.',
+    features: ['Volume tak terbatas', 'Harga kontrak khusus', 'Dedicated account manager', 'API integrasi toko online', 'Laporan bulanan'],
     isPopular: false
   }
 ];
 
 export const Pricing: React.FC = () => {
   return (
-    <section id="pricing" style={{ padding: '100px 0', background: 'rgba(255,255,255,0.02)' }}>
+    <section id="pricing" style={{ padding: '100px 0' }}>
       <div className="container">
         <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-          <h2>Simple, transparent pricing</h2>
+          <h2>Tarif Transparan</h2>
           <p style={{ maxWidth: '600px', margin: '0 auto' }}>
-            Choose the plan that fits your needs. No hidden fees, ever.
+            Pilih paket pengiriman yang sesuai kebutuhan Anda. Tanpa biaya tersembunyi.
           </p>
         </div>
         
@@ -47,9 +47,10 @@ export const Pricing: React.FC = () => {
           alignItems: 'center'
         }}>
           {plans.map((plan, idx) => (
-            <div key={idx} className="card" style={{ 
+            <div key={idx} className="glass-card" style={{ 
               position: 'relative',
-              borderColor: plan.isPopular ? 'var(--color-primary)' : 'var(--color-border)',
+              padding: '2rem',
+              borderColor: plan.isPopular ? 'var(--color-primary)' : undefined,
               transform: plan.isPopular ? 'scale(1.05)' : 'none',
               zIndex: plan.isPopular ? 10 : 1
             }}>
@@ -59,14 +60,14 @@ export const Pricing: React.FC = () => {
                   top: '-12px', 
                   left: '50%', 
                   transform: 'translateX(-50%)', 
-                  background: 'var(--color-primary)', 
+                  background: 'linear-gradient(135deg, rgba(59,130,246,0.8), rgba(139,92,246,0.8))', 
                   color: 'white', 
                   padding: '2px 12px', 
                   borderRadius: '12px', 
                   fontSize: '0.75rem', 
                   fontWeight: 600 
                 }}>
-                  Most Popular
+                  Paling Populer
                 </div>
               )}
               
@@ -77,8 +78,8 @@ export const Pricing: React.FC = () => {
                 <span style={{ color: 'var(--color-text-secondary)' }}>{plan.period}</span>
               </div>
               
-              <Button variant={plan.isPopular ? 'primary' : 'secondary'} style={{ width: '100%', marginBottom: '2rem' }}>
-                {plan.price === 'Custom' ? 'Contact Sales' : 'Get Started'}
+              <Button className={plan.isPopular ? 'btn-gradient' : ''} variant={plan.isPopular ? 'primary' : 'secondary'} style={{ width: '100%', marginBottom: '2rem', borderRadius: 'var(--glass-radius-sm)' }}>
+                {plan.price === 'Custom' ? 'Hubungi Kami' : 'Pilih Paket'}
               </Button>
               
               <ul style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>

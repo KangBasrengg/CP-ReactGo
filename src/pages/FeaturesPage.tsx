@@ -3,12 +3,12 @@ import { useScrollReveal } from '../hooks/useScrollReveal';
 import { Icon } from '../components/Icon';
 
 const features = [
-  { icon: 'Zap', title: 'Lightning Fast', desc: 'Performa optimal dengan arsitektur modern yang dioptimasi untuk kecepatan loading di bawah 1 detik.' },
-  { icon: 'Shield', title: 'Enterprise Security', desc: 'Keamanan berlapis dengan enkripsi end-to-end, SOC 2 compliance, dan audit trail lengkap.' },
-  { icon: 'BarChart3', title: 'Real-time Analytics', desc: 'Dashboard analitik real-time untuk memantau performa bisnis Anda kapan saja dan di mana saja.' },
-  { icon: 'Puzzle', title: 'Easy Integration', desc: 'Integrasi mudah dengan 100+ layanan pihak ketiga melalui REST API dan webhook.' },
-  { icon: 'Users', title: 'Team Collaboration', desc: 'Fitur kolaborasi tim dengan role management, komentar, dan notifikasi real-time.' },
-  { icon: 'Globe', title: 'Global CDN', desc: 'Jaringan distribusi global memastikan akses cepat dari lebih dari 120 negara di seluruh dunia.' },
+  { icon: 'Zap', title: 'Pengiriman Cepat', desc: 'Layanan same-day dan next-day delivery ke seluruh kota besar di Indonesia dengan armada terpercaya.' },
+  { icon: 'Shield', title: 'Asuransi Paket', desc: 'Setiap paket diasuransikan dan dikemas dengan standar keamanan tinggi untuk melindungi barang Anda.' },
+  { icon: 'BarChart3', title: 'Tracking Real-Time', desc: 'Pantau posisi paket Anda secara real-time melalui dashboard atau notifikasi WhatsApp otomatis.' },
+  { icon: 'ShoppingCart', title: 'Open Pre-Order', desc: 'Layanan pre-order barang dari luar negeri maupun dalam negeri dengan sistem pembayaran yang fleksibel.' },
+  { icon: 'Package', title: 'Jastip Terpercaya', desc: 'Penitipan pembelian dari marketplace luar negeri, oleh-oleh, atau barang limited edition dengan harga transparan.' },
+  { icon: 'Globe', title: 'Jangkauan Luas', desc: 'Melayani pengiriman ke 350+ kota di Indonesia dan pre-order dari 15+ negara di seluruh dunia.' },
 ];
 
 export const FeaturesPage: React.FC = () => {
@@ -20,16 +20,16 @@ export const FeaturesPage: React.FC = () => {
         <div ref={headerRef} style={{ textAlign: 'center', marginBottom: '4rem' }}>
           <div style={{
             display: 'inline-flex', alignItems: 'center', gap: '0.4rem',
-            padding: '0.3rem 0.9rem', background: 'rgba(99,102,241,0.08)',
-            border: '1px solid rgba(99,102,241,0.12)', color: 'var(--color-accent-violet)',
+            padding: '0.3rem 0.9rem', background: 'rgba(32,201,151,0.08)',
+            border: '1px solid rgba(32,201,151,0.12)', color: 'var(--color-accent-teal)',
             borderRadius: '9999px', fontSize: '0.75rem', fontWeight: 600, marginBottom: '1.25rem',
             letterSpacing: '0.04em'
           }}>
-            <Icon name="Sparkles" size={13} /> FEATURES
+            <Icon name="Sparkles" size={13} /> LAYANAN
           </div>
-          <h1 style={{ fontSize: '2.75rem', marginBottom: '1rem' }}>Everything you need to scale</h1>
+          <h1 style={{ fontSize: '2.75rem', marginBottom: '1rem' }}>Semua yang Anda butuhkan</h1>
           <p style={{ maxWidth: '560px', margin: '0 auto', fontSize: '0.95rem', lineHeight: 1.7 }}>
-            Platform kami dirancang untuk memberikan pengalaman terbaik bagi tim Anda dengan fitur-fitur unggulan.
+            Platform kami dirancang untuk memberikan pengalaman terbaik dalam pengiriman, pre-order, dan penitipan pembelian.
           </p>
         </div>
 
@@ -50,10 +50,10 @@ const FeatureCard: React.FC<{ icon: string; title: string; desc: string; index: 
     <div ref={ref} className="glass-card" style={{ padding: '2rem', display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
       <div style={{
         width: '40px', height: '40px', borderRadius: '12px', flexShrink: 0,
-        background: 'rgba(99,102,241,0.1)', border: '1px solid rgba(99,102,241,0.15)',
+        background: 'rgba(232,162,56,0.1)', border: '1px solid rgba(232,162,56,0.15)',
         display: 'flex', alignItems: 'center', justifyContent: 'center'
       }}>
-        <Icon name={icon} size={18} color="var(--color-accent-violet)" />
+        <Icon name={icon} size={18} color="var(--color-accent-amber)" />
       </div>
       <div>
         <h3 style={{ fontSize: '1.1rem', marginBottom: '0.4rem' }}>{title}</h3>

@@ -11,11 +11,28 @@ export const SignUpPage: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (password.length < 8) {
+      alert('Password minimal 8 karakter');
+      return;
+    }
     console.log('Sign up:', { name, email, password });
   };
 
+  const getPasswordStrength = (pass: string) => {
+    if (!pass) return 0;
+    let s = 0;
+    if (pass.length >= 8) s += 1;
+    if (pass.match(/[A-Z]/) && pass.match(/[a-z]/)) s += 1;
+    if (pass.match(/\d/)) s += 1;
+    if (pass.match(/[^a-zA-Z\d]/)) s += 1;
+    return s;
+  };
+  const strength = getPasswordStrength(password);
+  const strengthColors = ['#4b5563', '#ef4444', '#f59e0b', '#22c55e', '#10b981'];
+  const strengthLabels = ['Sangat Lemah', 'Lemah', 'Sedang', 'Kuat', 'Sangat Kuat'];
+
   return (
-    <div style={{
+    <div className="section-photo" style={{
       minHeight: '100vh',
       display: 'flex',
       alignItems: 'center',
@@ -23,8 +40,8 @@ export const SignUpPage: React.FC = () => {
       padding: '2rem',
       position: 'relative',
     }}>
-      <div style={{ position: 'absolute', top: '10%', right: '20%', width: '400px', height: '300px', background: 'rgba(167,139,250,0.1)', borderRadius: '50%', filter: 'blur(100px)', pointerEvents: 'none' }} />
-      <div style={{ position: 'absolute', bottom: '15%', left: '20%', width: '350px', height: '250px', background: 'rgba(99,102,241,0.1)', borderRadius: '50%', filter: 'blur(100px)', pointerEvents: 'none' }} />
+      <div style={{ position: 'absolute', top: '10%', right: '20%', width: '400px', height: '300px', background: 'rgba(32,201,151,0.1)', borderRadius: '50%', filter: 'blur(100px)', pointerEvents: 'none' }} />
+      <div style={{ position: 'absolute', bottom: '15%', left: '20%', width: '350px', height: '250px', background: 'rgba(232,162,56,0.1)', borderRadius: '50%', filter: 'blur(100px)', pointerEvents: 'none' }} />
 
       <div style={{ width: '100%', maxWidth: '420px', position: 'relative', zIndex: 1 }}>
         <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '2rem' }}>
@@ -97,6 +114,26 @@ export const SignUpPage: React.FC = () => {
                   <Icon name={showPassword ? 'EyeOff' : 'Eye'} size={16} color="var(--color-text-muted)" />
                 </button>
               </div>
+              
+              {/* Password Strength Indicator */}
+              {password.length > 0 && (
+                <div style={{ marginTop: '0.75rem' }}>
+                  <div style={{ display: 'flex', gap: '4px', marginBottom: '0.4rem' }}>
+                    {[1, 2, 3, 4].map((level) => (
+                      <div key={level} style={{
+                        height: '4px',
+                        flex: 1,
+                        borderRadius: '2px',
+                        background: strength >= level ? strengthColors[strength] : 'rgba(255,255,255,0.1)',
+                        transition: 'background 0.3s'
+                      }} />
+                    ))}
+                  </div>
+                  <div style={{ fontSize: '0.75rem', color: strength >= 3 ? 'var(--color-accent-teal)' : 'var(--color-text-muted)' }}>
+                    Tingkat keamanan: {strengthLabels[strength]}
+                  </div>
+                </div>
+              )}
             </div>
 
             {/* Password strength bar */}
