@@ -36,7 +36,7 @@ export const SignInPage: React.FC = () => {
         </div>
 
         {/* Glass card */}
-        <div className="glass-card" style={{ padding: '2.5rem 2rem' }}>
+        <div className="glass-card" style={{ padding: '2.5rem 2rem', backdropFilter: 'blur(80px) saturate(200%)', WebkitBackdropFilter: 'blur(80px) saturate(200%)', background: 'linear-gradient(135deg, rgba(11, 42, 58, 0.85) 0%, rgba(11, 42, 58, 0.75) 50%, rgba(11, 42, 58, 0.80) 100%)' }}>
           <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
             <h2 style={{ fontSize: '1.5rem', marginBottom: '0.5rem' }}>Welcome back</h2>
             <p style={{ fontSize: '0.875rem', marginBottom: 0 }}>Sign in to your account to continue</p>

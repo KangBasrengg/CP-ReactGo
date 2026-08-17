@@ -5,7 +5,7 @@ import { Icon } from '../Icon';
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="section-solid" style={{ padding: '3rem 0 2rem', borderTop: '1px solid rgba(255,255,255,0.04)' }}>
+    <footer className="section-solid solid-fade-dark" style={{ padding: '3rem 0 2rem' }}>
       <div className="container">
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '3rem', marginBottom: '3rem' }}>
           <div style={{ flex: '1', minWidth: '220px' }}>
@@ -15,15 +15,7 @@ export const Footer: React.FC = () => {
             </p>
             <div style={{ display: 'flex', gap: '0.75rem', marginTop: '1.25rem' }}>
               {['Twitter', 'Github', 'Linkedin'].map(icon => (
-                <a key={icon} href="#" style={{ 
-                  color: 'var(--color-text-muted)', 
-                  transition: 'color 0.2s',
-                  display: 'flex',
-                  padding: '0.4rem',
-                  borderRadius: '8px',
-                  background: 'rgba(255,255,255,0.03)',
-                  border: '1px solid rgba(255,255,255,0.05)',
-                }}>
+                <a key={icon} href="#" className="footer-social-icon">
                   <Icon name={icon} size={16} />
                 </a>
               ))}
@@ -33,14 +25,14 @@ export const Footer: React.FC = () => {
           <div style={{ display: 'flex', gap: '3rem', flexWrap: 'wrap' }}>
             {[
               { title: 'Product', links: [{name: 'Features', path: '/features'}, {name: 'Integrations', path: '/integrations'}, {name: 'Pricing', path: '/pricing'}, {name: 'Changelog', path: '/changelog'}] },
-              { title: 'Company', links: [{name: 'About Us', path: '/about'}, {name: 'Careers', path: '/careers'}, {name: 'Blog', path: '/blog'}, {name: 'Contact', path: '/contact'}] },
+              { title: 'Company', links: [{name: 'About Us', path: '/about'}, {name: 'Profile', path: '/profile'}, {name: 'Careers', path: '/careers'}, {name: 'Contact', path: '/contact'}] },
             ].map(section => (
               <div key={section.title}>
                 <h4 style={{ fontSize: '0.85rem', marginBottom: '1.25rem', color: 'var(--color-text-primary)', fontWeight: 600 }}>{section.title}</h4>
                 <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                   {section.links.map(link => (
                     <li key={link.name}>
-                      <Link to={link.path} style={{ color: 'var(--color-text-muted)', fontSize: '0.8rem', fontWeight: 400, transition: 'color 0.2s', textDecoration: 'none' }}>
+                      <Link to={link.path} className="footer-link">
                         {link.name}
                       </Link>
                     </li>

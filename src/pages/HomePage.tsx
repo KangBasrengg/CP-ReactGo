@@ -15,10 +15,10 @@ export const HomePage: React.FC = () => {
       <div className="section-photo">
         <Hero />
       </div>
-      <div className="section-solid">
+      <div className="section-solid solid-fade-dark">
         <Partners />
       </div>
-      <div className="section-photo">
+      <div className="section-photo photo-fade-dark">
         <Stats />
       </div>
       <div className="section-solid">
@@ -36,7 +36,7 @@ export const HomePage: React.FC = () => {
       <div className="section-solid">
         <About />
       </div>
-      <div className="section-photo">
+      <div className="section-photo photo-fade-bottom">
         <ContactPage />
       </div>
     </>

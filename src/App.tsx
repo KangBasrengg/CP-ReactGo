@@ -12,6 +12,7 @@ import { CareersPage } from './pages/CareersPage';
 import { BlogPage } from './pages/BlogPage';
 import { ContactPage } from './pages/ContactPage';
 import { AboutPage } from './pages/AboutPage';
+import { ProfilePage } from './pages/ProfilePage';
 import './index.css';
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
           <Route path="/integrations" element={<IntegrationsPage />} />
           <Route path="/changelog" element={<ChangelogPage />} />
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/profile" element={<ProfilePage />} />
           <Route path="/careers" element={<CareersPage />} />
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/contact" element={<ContactPage />} />
