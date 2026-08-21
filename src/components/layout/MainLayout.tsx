@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import { Navbar } from './Navbar';
 import { Footer } from './Footer';
@@ -6,6 +6,10 @@ import { Footer } from './Footer';
 export const MainLayout: React.FC = () => {
   const location = useLocation();
   const isAuthPage = ['/signin', '/signup', '/reset-password'].includes(location.pathname);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
 
   return (
     <div className="app">

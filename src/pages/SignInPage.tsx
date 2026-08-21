@@ -8,8 +8,18 @@ export const SignInPage: React.FC = () => {
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
 
+  const [emailError, setEmailError] = useState('');
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    setEmailError('');
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setEmailError('Please enter a valid email address.');
+      return;
+    }
+
     // TODO: integrate with backend
     console.log('Sign in:', { email, password });
   };
@@ -20,7 +30,7 @@ export const SignInPage: React.FC = () => {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      padding: '2rem',
+      padding: '120px 2rem 4rem',
       position: 'relative',
     }}>
       {/* Ambient glows */}
@@ -28,12 +38,7 @@ export const SignInPage: React.FC = () => {
       <div style={{ position: 'absolute', bottom: '20%', right: '25%', width: '350px', height: '250px', background: 'rgba(32,201,151,0.08)', borderRadius: '50%', filter: 'blur(100px)', pointerEvents: 'none' }} />
 
       <div style={{ width: '100%', maxWidth: '420px', position: 'relative', zIndex: 1 }}>
-        {/* Logo */}
-        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '2rem' }}>
-          <Link to="/" style={{ textDecoration: 'none' }}>
-            <Logo />
-          </Link>
-        </div>
+
 
         {/* Glass card */}
         <div className="glass-card" style={{ padding: '2.5rem 2rem', backdropFilter: 'blur(80px) saturate(200%)', WebkitBackdropFilter: 'blur(80px) saturate(200%)', background: 'linear-gradient(135deg, rgba(11, 42, 58, 0.85) 0%, rgba(11, 42, 58, 0.75) 50%, rgba(11, 42, 58, 0.80) 100%)' }}>
@@ -42,23 +47,36 @@ export const SignInPage: React.FC = () => {
             <p style={{ fontSize: '0.875rem', marginBottom: 0 }}>Sign in to your account to continue</p>
           </div>
 
-          <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+          <form onSubmit={handleSubmit} noValidate style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
             {/* Email */}
             <div>
               <label style={{ display: 'block', fontSize: '0.8rem', color: 'var(--color-text-secondary)', marginBottom: '0.4rem', fontWeight: 500 }}>
                 Email
               </label>
-              <div className="glass-input-wrapper">
+              <div className="glass-input-wrapper" style={{ borderColor: emailError ? 'rgba(239, 68, 68, 0.5)' : undefined }}>
                 <Icon name="Mail" size={16} color="var(--color-text-muted)" />
                 <input
                   type="email"
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={(e) => {
+                    const val = e.target.value;
+                    setEmail(val);
+                    if (val.length > 0 && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) {
+                      setEmailError('Please enter a valid email address.');
+                    } else {
+                      setEmailError('');
+                    }
+                  }}
                   placeholder="you@example.com"
                   className="glass-input"
                   required
                 />
               </div>
+              {emailError && (
+                <div style={{ marginTop: '0.5rem', fontSize: '0.75rem', color: '#ef4444' }}>
+                  {emailError}
+                </div>
+              )}
             </div>
 
             {/* Password */}

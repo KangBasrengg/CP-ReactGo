@@ -1,11 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Logo } from '../Logo';
 import { Icon } from '../Icon';
 
 export const Footer: React.FC = () => {
+  const location = useLocation();
+
   return (
-    <footer className="section-solid solid-fade-dark" style={{ padding: '3rem 0 2rem' }}>
+    <footer className="section-solid" style={{ padding: '3rem 0 2rem', background: '#061832' }}>
       <div className="container">
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '3rem', marginBottom: '3rem' }}>
           <div style={{ flex: '1', minWidth: '220px' }}>
@@ -30,13 +32,16 @@ export const Footer: React.FC = () => {
               <div key={section.title}>
                 <h4 style={{ fontSize: '0.85rem', marginBottom: '1.25rem', color: 'var(--color-text-primary)', fontWeight: 600 }}>{section.title}</h4>
                 <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-                  {section.links.map(link => (
-                    <li key={link.name}>
-                      <Link to={link.path} className="footer-link">
-                        {link.name}
-                      </Link>
-                    </li>
-                  ))}
+                  {section.links.map(link => {
+                    const isActive = location.pathname === link.path;
+                    return (
+                      <li key={link.name}>
+                        <Link to={link.path} className={`footer-link ${isActive ? 'active' : ''}`}>
+                          {link.name}
+                        </Link>
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
             ))}

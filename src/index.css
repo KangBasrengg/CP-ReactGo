@@ -34,9 +34,9 @@
     inset 0 0.5px 0 rgba(255, 255, 255, 0.18),
     0 8px 32px rgba(0, 0, 0, 0.35);
   --glass-shadow-hover:
-    inset 0 0.5px 0 rgba(255, 255, 255, 0.25),
-    0 12px 40px rgba(0, 0, 0, 0.4),
-    0 0 0 1px rgba(255, 255, 255, 0.10);
+    inset 0 0.5px 0 rgba(255, 255, 255, 0.35),
+    0 20px 50px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(255, 255, 255, 0.15);
   --glass-radius: 20px;
   --glass-radius-sm: 14px;
   --glass-radius-lg: 28px;
@@ -77,14 +77,14 @@ body {
       rgba(11, 42, 58, 0.60) 0%,
       rgba(11, 42, 58, 0.40) 40%,
       rgba(11, 42, 58, 0.50) 70%,
-      rgba(11, 42, 58, 1) 100%);
+      rgba(11, 42, 58, 0.60) 100%);
   pointer-events: none;
   z-index: 0;
 }
 
 .section-photo>* {
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 /* Solid background sections — dark base with ambient glow */
@@ -93,25 +93,86 @@ body {
   background: linear-gradient(to bottom, #0b2a3a, #104b66, #126f96, #0f94c9, #02bcff);
 }
 
+/* ====== Smooth Section Transitions ====== */
+/* Gradient edge-blending on section boundaries to eliminate visible seams.
+   Uses ::after to render a fade at top and bottom of each section. */
+
+.section-photo,
+.section-solid {
+  --fade-top-color: var(--color-bg-base);
+  --fade-bottom-color: var(--color-bg-base);
+}
+
+.section-photo::after,
+.section-solid::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background:
+    linear-gradient(to bottom,
+      var(--fade-top-color) 0%,
+      transparent 80px),
+    linear-gradient(to top,
+      var(--fade-bottom-color) 0%,
+      transparent 80px);
+}
+
+/* First section (Hero) — no top fade, only bottom fade */
+.section-photo:first-child::after,
+.section-photo.no-top-fade::after {
+  background:
+    linear-gradient(to top,
+      var(--fade-bottom-color) 0%,
+      transparent 80px);
+}
+
+/* Last section — no bottom fade, only top fade */
+.section-photo:last-child::after,
+.section-photo.no-bottom-fade::after {
+  background:
+    linear-gradient(to bottom,
+      var(--fade-top-color) 0%,
+      transparent 80px);
+}
+
 /* Specific utilities for customized seamless transitions */
+.fade-to-footer::after {
+  --fade-bottom-color: #061832;
+  background:
+    linear-gradient(to bottom,
+      var(--fade-top-color) 0%,
+      transparent 80px),
+    linear-gradient(to top,
+      var(--fade-bottom-color) 0%,
+      transparent 120px) !important;
+}
+
 .solid-fade-dark {
-  background: linear-gradient(to bottom, #0b2a3a, #104b66, #126f96, #104b66, #0b2a3a) !important;
+  --fade-bottom-color: rgba(6, 107, 150, 1);
+  background-image: linear-gradient(to bottom, #122f3a, #154253, #17566c, #186b88, #1781a4) !important;
 }
 
-.photo-fade-dark::before {
-  background: linear-gradient(to bottom,
-      rgba(11, 42, 58, 1) 0%,
-      rgba(11, 42, 58, 0.40) 20%,
-      rgba(11, 42, 58, 0.50) 70%,
-      rgba(11, 42, 58, 1) 100%) !important;
+.photo-sky-top {
+  --fade-top-color: rgba(6, 107, 150, 1);
 }
 
-.photo-fade-bottom::before {
-  background: linear-gradient(to bottom,
-      rgba(11, 42, 58, 0.60) 0%,
-      rgba(11, 42, 58, 0.40) 40%,
-      rgba(11, 42, 58, 0.70) 80%,
-      rgba(11, 42, 58, 1) 95%) !important;
+.section-solid::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 10%, rgba(232, 162, 56, 0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 80% 30%, rgba(32, 201, 151, 0.05) 0%, transparent 50%),
+    radial-gradient(ellipse 70% 40% at 50% 90%, rgba(18, 165, 148, 0.04) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.section-solid>* {
+  position: relative;
+  z-index: 2;
 }
 
 .footer-link {
@@ -129,6 +190,11 @@ body {
   transform: translateX(4px);
 }
 
+.footer-link.active {
+  color: var(--color-accent-cyan);
+  font-weight: 600;
+}
+
 .footer-social-icon {
   color: var(--color-text-muted);
   transition: all 0.3s ease;
@@ -144,23 +210,6 @@ body {
   border-color: rgba(2, 188, 255, 0.3);
   box-shadow: 0 0 15px rgba(2, 188, 255, 0.2);
   transform: translateY(-3px);
-}
-
-.section-solid::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 80% 60% at 20% 10%, rgba(232, 162, 56, 0.06) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 50% at 80% 30%, rgba(32, 201, 151, 0.05) 0%, transparent 50%),
-    radial-gradient(ellipse 70% 40% at 50% 90%, rgba(18, 165, 148, 0.04) 0%, transparent 50%);
-  pointer-events: none;
-  z-index: 0;
-}
-
-.section-solid>* {
-  position: relative;
-  z-index: 1;
 }
 
 h1,
@@ -248,7 +297,7 @@ button {
 .glass-card:hover {
   border-color: var(--glass-border-hover);
   box-shadow: var(--glass-shadow-hover);
-  transform: translateY(-2px);
+  transform: translateY(-5px) scale(1.02) !important;
 }
 
 /* ====== Buttons — Unified Liquid Glass ====== */

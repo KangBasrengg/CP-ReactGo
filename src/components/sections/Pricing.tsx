@@ -44,7 +44,7 @@ export const Pricing: React.FC = () => {
           display: 'grid', 
           gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
           gap: '2rem',
-          alignItems: 'center'
+          alignItems: 'stretch'
         }}>
           {plans.map((plan, idx) => (
             <div key={idx} className="glass-card" style={{ 

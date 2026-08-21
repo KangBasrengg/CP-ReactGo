@@ -40,7 +40,7 @@ export const PricingPage: React.FC = () => {
   const headerRef = useScrollReveal<HTMLDivElement>();
 
   return (
-    <section style={{ padding: '120px 0 80px' }}>
+    <section className="section-photo fade-to-footer" style={{ padding: '120px 0 80px', minHeight: '100vh' }}>
       <div className="container">
         <div ref={headerRef} style={{ textAlign: 'center', marginBottom: '4rem' }}>
           <h1 style={{ fontSize: '2.75rem', marginBottom: '1rem' }}>Tarif Transparan</h1>
@@ -77,7 +77,7 @@ export const PricingPage: React.FC = () => {
                   <span style={{ fontSize: '2.5rem', fontWeight: 700, letterSpacing: '-0.02em' }}>{plan.price}</span>
                   {plan.period && <span style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)' }}>{plan.period}</span>}
                 </div>
-                <p style={{ fontSize: '0.85rem', marginBottom: '1.5rem', lineHeight: 1.6, flex: 1 }}>{plan.desc}</p>
+                <p style={{ fontSize: '0.85rem', marginBottom: '1.5rem', lineHeight: 1.6, minHeight: '3rem' }}>{plan.desc}</p>
 
                 <Button
                   className={plan.popular ? 'btn-gradient' : 'btn-secondary'}

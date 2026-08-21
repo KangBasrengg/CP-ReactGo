@@ -14,7 +14,7 @@ export const ContactPage: React.FC = () => {
   const update = (key: string, value: string) => setFormData(prev => ({ ...prev, [key]: value }));
 
   return (
-    <section style={{ padding: '120px 0 80px' }}>
+    <section className="section-photo fade-to-footer" style={{ padding: '120px 0 80px', minHeight: '100vh' }}>
       <div className="container">
         <div ref={headerRef} style={{ textAlign: 'center', marginBottom: '3rem' }}>
           <h1 style={{ fontSize: '2.75rem', marginBottom: '1rem' }}>Hubungi Kami</h1>

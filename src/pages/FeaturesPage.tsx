@@ -15,13 +15,13 @@ export const FeaturesPage: React.FC = () => {
   const headerRef = useScrollReveal<HTMLDivElement>();
 
   return (
-    <section style={{ padding: '120px 0 80px' }}>
+    <section className="section-photo fade-to-footer" style={{ padding: '120px 0 80px', minHeight: '100vh' }}>
       <div className="container">
         <div ref={headerRef} style={{ textAlign: 'center', marginBottom: '4rem' }}>
           <div style={{
             display: 'inline-flex', alignItems: 'center', gap: '0.4rem',
-            padding: '0.3rem 0.9rem', background: 'rgba(32,201,151,0.08)',
-            border: '1px solid rgba(32,201,151,0.12)', color: 'var(--color-accent-teal)',
+            padding: '0.3rem 0.9rem', background: 'rgba(232, 162, 56, 0.08)',
+            border: '1px solid rgba(232, 162, 56, 0.15)', color: 'var(--color-accent-amber)',
             borderRadius: '9999px', fontSize: '0.75rem', fontWeight: 600, marginBottom: '1.25rem',
             letterSpacing: '0.04em'
           }}>
