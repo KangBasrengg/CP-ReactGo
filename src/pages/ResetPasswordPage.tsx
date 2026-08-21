@@ -1,51 +1,61 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Logo } from '../components/Logo';
 import { Icon } from '../components/Icon';
 
 export const ResetPasswordPage: React.FC = () => {
   const [email, setEmail] = useState('');
+  const [emailError, setEmailError] = useState('');
   const [sent, setSent] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!email || emailError) return;
     setSent(true);
   };
 
   return (
-    <div className="section-photo" style={{
-      minHeight: '100vh',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      padding: '2rem',
-      position: 'relative',
-    }}>
-      <div style={{ position: 'absolute', top: '30%', left: '30%', width: '350px', height: '250px', background: 'rgba(232,162,56,0.1)', borderRadius: '50%', filter: 'blur(100px)', pointerEvents: 'none' }} />
+    <div className="section-photo auth-page">
+      <div className="ambient-glow-amber" style={{ top: '30%', left: '30%', width: '350px', height: '250px' }} />
 
-      <div style={{ width: '100%', maxWidth: '420px', position: 'relative', zIndex: 1 }}>
-        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '2rem' }}>
-          <Link to="/" style={{ textDecoration: 'none' }}><Logo /></Link>
-        </div>
-
-        <div className="glass-card" style={{ padding: '2.5rem 2rem' }}>
+      <div className="auth-container">
+        <div className="glass-card auth-card">
           {!sent ? (
             <>
               <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-                <div style={{ width: '48px', height: '48px', borderRadius: '14px', background: 'rgba(232,162,56,0.15)', border: '1px solid rgba(232,162,56,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1rem' }}>
+                <div className="icon-box-lg" style={{ margin: '0 auto 1rem' }}>
                   <Icon name="KeyRound" size={22} color="var(--color-accent-amber)" />
                 </div>
                 <h2 style={{ fontSize: '1.5rem', marginBottom: '0.5rem' }}>Reset password</h2>
                 <p style={{ fontSize: '0.875rem', marginBottom: 0 }}>Enter your email and we'll send you a reset link</p>
               </div>
 
-              <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-                <div>
+              <form onSubmit={handleSubmit} noValidate style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+                <div style={{ position: 'relative' }}>
                   <label style={{ display: 'block', fontSize: '0.8rem', color: 'var(--color-text-secondary)', marginBottom: '0.4rem', fontWeight: 500 }}>Email</label>
-                  <div className="glass-input-wrapper">
+                  <div className="input-box" style={{ borderColor: emailError ? 'rgba(239, 68, 68, 0.5)' : undefined }}>
                     <Icon name="Mail" size={16} color="var(--color-text-muted)" />
-                    <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="you@example.com" className="glass-input" required />
+                    <input
+                      type="email"
+                      value={email}
+                      onChange={(e) => {
+                        const val = e.target.value;
+                        setEmail(val);
+                        if (val.length > 0 && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) {
+                          setEmailError('Please enter a valid email address.');
+                        } else {
+                          setEmailError('');
+                        }
+                      }}
+                      placeholder="you@example.com"
+                      className="glass-input"
+                      required
+                    />
                   </div>
+                  {emailError && (
+                    <div style={{ position: 'absolute', top: '100%', left: 0, marginTop: '0.2rem', fontSize: '0.75rem', color: '#ef4444' }}>
+                      {emailError}
+                    </div>
+                  )}
                 </div>
                 <button type="submit" className="btn btn-gradient" style={{ width: '100%', borderRadius: 'var(--glass-radius-sm)', padding: '0.75rem', fontSize: '0.9rem' }}>
                   Send Reset Link

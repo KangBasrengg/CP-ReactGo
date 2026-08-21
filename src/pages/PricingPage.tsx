@@ -1,7 +1,8 @@
 import React from 'react';
-import { useScrollReveal } from '../hooks/useScrollReveal';
+import { useScrollReveal, useStaggerReveal } from '../hooks/useScrollReveal';
 import { Icon } from '../components/Icon';
 import { Button } from '../components/Button';
+import { useLocation } from 'react-router-dom';
 
 const plans = [
   {
@@ -38,22 +39,24 @@ const plans = [
 
 export const PricingPage: React.FC = () => {
   const headerRef = useScrollReveal<HTMLDivElement>();
+  const containerRef = useStaggerReveal<HTMLDivElement>();
+  const location = useLocation();
+  const isStandalone = location.pathname !== '/';
 
   return (
-    <section className="section-photo fade-to-footer" style={{ padding: '120px 0 80px', minHeight: '100vh' }}>
+    <section className={`page-section ${isStandalone ? "section-photo fade-to-footer" : ""}`} style={{ minHeight: isStandalone ? '100vh' : undefined }}>
       <div className="container">
-        <div ref={headerRef} style={{ textAlign: 'center', marginBottom: '4rem' }}>
+        <div ref={headerRef} className="page-header" style={{ marginBottom: '4rem' }}>
           <h1 style={{ fontSize: '2.75rem', marginBottom: '1rem' }}>Tarif Transparan</h1>
           <p style={{ maxWidth: '500px', margin: '0 auto', fontSize: '0.95rem', lineHeight: 1.7 }}>
             Pilih paket pengiriman yang sesuai dengan kebutuhan Anda. Upgrade kapan saja tanpa biaya tambahan.
           </p>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.25rem', alignItems: 'stretch' }}>
+        <div ref={containerRef} className="grid-cards" style={{ alignItems: 'stretch' }}>
           {plans.map((plan, i) => {
-            const ref = useScrollReveal<HTMLDivElement>();
             return (
-              <div ref={ref} key={i} className="glass-card" style={{
+              <div key={i} className="glass-card" style={{
                 padding: '2.5rem 2rem',
                 position: 'relative',
                 border: plan.popular ? '1px solid rgba(232,162,56,0.3)' : undefined,

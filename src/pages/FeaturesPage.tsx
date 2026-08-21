@@ -2,6 +2,8 @@ import React from 'react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { Icon } from '../components/Icon';
 
+import { useLocation } from 'react-router-dom';
+
 const features = [
   { icon: 'Zap', title: 'Pengiriman Cepat', desc: 'Layanan same-day dan next-day delivery ke seluruh kota besar di Indonesia dengan armada terpercaya.' },
   { icon: 'Shield', title: 'Asuransi Paket', desc: 'Setiap paket diasuransikan dan dikemas dengan standar keamanan tinggi untuk melindungi barang Anda.' },
@@ -13,11 +15,13 @@ const features = [
 
 export const FeaturesPage: React.FC = () => {
   const headerRef = useScrollReveal<HTMLDivElement>();
+  const location = useLocation();
+  const isStandalone = location.pathname !== '/';
 
   return (
-    <section className="section-photo fade-to-footer" style={{ padding: '120px 0 80px', minHeight: '100vh' }}>
+    <section className={`page-section ${isStandalone ? "section-photo fade-to-footer" : ""}`} style={{ minHeight: isStandalone ? '100vh' : undefined }}>
       <div className="container">
-        <div ref={headerRef} style={{ textAlign: 'center', marginBottom: '4rem' }}>
+        <div ref={headerRef} className="page-header" style={{ marginBottom: '4rem' }}>
           <div style={{
             display: 'inline-flex', alignItems: 'center', gap: '0.4rem',
             padding: '0.3rem 0.9rem', background: 'rgba(232, 162, 56, 0.08)',
@@ -33,7 +37,7 @@ export const FeaturesPage: React.FC = () => {
           </p>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1.25rem' }}>
+        <div className="grid-cards">
           {features.map((f, i) => (
             <FeatureCard key={i} icon={f.icon} title={f.title} desc={f.desc} index={i} />
           ))}
@@ -48,11 +52,7 @@ const FeatureCard: React.FC<{ icon: string; title: string; desc: string; index: 
 
   return (
     <div ref={ref} className="glass-card" style={{ padding: '2rem', display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
-      <div style={{
-        width: '40px', height: '40px', borderRadius: '12px', flexShrink: 0,
-        background: 'rgba(232,162,56,0.1)', border: '1px solid rgba(232,162,56,0.15)',
-        display: 'flex', alignItems: 'center', justifyContent: 'center'
-      }}>
+      <div className="icon-box">
         <Icon name={icon} size={18} color="var(--color-accent-amber)" />
       </div>
       <div>

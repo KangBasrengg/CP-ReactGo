@@ -22,6 +22,14 @@ export function useScrollReveal<T extends HTMLElement>(
         if (entry.isIntersecting) {
           el.style.opacity = '1';
           el.style.transform = 'translateY(0)';
+          
+          setTimeout(() => {
+            if (el) {
+              el.style.transition = '';
+              el.style.transform = '';
+            }
+          }, 600);
+
           observer.unobserve(el);
         }
       },
@@ -62,6 +70,16 @@ export function useStaggerReveal<T extends HTMLElement>(
             child.style.opacity = '1';
             child.style.transform = 'translateY(0)';
           });
+
+          setTimeout(() => {
+            children.forEach((child) => {
+              if (child) {
+                child.style.transition = '';
+                child.style.transform = '';
+              }
+            });
+          }, children.length * staggerMs + 600);
+
           observer.unobserve(parent);
         }
       },

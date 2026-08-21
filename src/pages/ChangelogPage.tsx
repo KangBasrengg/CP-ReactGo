@@ -1,5 +1,5 @@
 import React from 'react';
-import { useScrollReveal } from '../hooks/useScrollReveal';
+import { useScrollReveal, useStaggerReveal } from '../hooks/useScrollReveal';
 import { Icon } from '../components/Icon';
 import { ContentPage } from './ContentPage';
 
@@ -11,13 +11,13 @@ const logs = [
 ];
 
 export const ChangelogPage: React.FC = () => {
+  const containerRef = useStaggerReveal<HTMLDivElement>();
   return (
     <ContentPage badge="CHANGELOG" badgeIcon="Clock" title="Yang Terbaru" subtitle="Semua update dan perubahan yang kami buat untuk meningkatkan layanan pengiriman.">
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+      <div ref={containerRef} className="flex-col" style={{ gap: '1.5rem' }}>
         {logs.map((log, i) => {
-          const ref = useScrollReveal<HTMLDivElement>();
           return (
-            <div ref={ref} key={i} className="glass-card" style={{ padding: '2rem' }}>
+            <div key={i} className="glass-card" style={{ padding: '2rem' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem', flexWrap: 'wrap' }}>
                 <span style={{ fontSize: '1.1rem', fontWeight: 700 }}>{log.version}</span>
                 <span style={{

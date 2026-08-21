@@ -1,5 +1,5 @@
 import React from 'react';
-import { useScrollReveal } from '../hooks/useScrollReveal';
+import { useScrollReveal, useStaggerReveal } from '../hooks/useScrollReveal';
 import { Icon } from '../components/Icon';
 import { ContentPage } from './ContentPage';
 
@@ -13,18 +13,14 @@ const integrations = [
 ];
 
 export const IntegrationsPage: React.FC = () => {
+  const containerRef = useStaggerReveal<HTMLDivElement>();
   return (
     <ContentPage badge="INTEGRASI" badgeIcon="Puzzle" title="Terhubung dengan tools Anda" subtitle="Integrasikan platform kami dengan marketplace dan tools yang sudah Anda gunakan sehari-hari.">
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.25rem' }}>
+      <div ref={containerRef} className="grid-cards">
         {integrations.map((item, i) => {
-          const ref = useScrollReveal<HTMLDivElement>();
           return (
-            <div ref={ref} key={i} className="glass-card" style={{ padding: '1.5rem', display: 'flex', alignItems: 'flex-start', gap: '1rem' }}>
-              <div style={{
-                width: '40px', height: '40px', borderRadius: '12px', flexShrink: 0,
-                background: 'rgba(232,162,56,0.1)', border: '1px solid rgba(232,162,56,0.15)',
-                display: 'flex', alignItems: 'center', justifyContent: 'center'
-              }}>
+            <div key={i} className="glass-card" style={{ padding: '1.5rem', display: 'flex', alignItems: 'flex-start', gap: '1rem' }}>
+              <div className="icon-box">
                 <Icon name={item.icon} size={18} color="var(--color-accent-amber)" />
               </div>
               <div>

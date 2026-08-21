@@ -17,19 +17,19 @@ export const HomePage: React.FC = () => {
         <Partners />
         <Stats />
       </div>
-      <div className="section-solid solid-fade-dark">
+      <div className="section-solid bg-fade-dark">
         <FeaturesPage />
       </div>
       <div className="section-photo photo-sky-top">
         <IntegrationsPage />
       </div>
-      <div className="section-solid solid-fade-dark">
+      <div className="section-solid bg-fade-dark">
         <Portfolio />
       </div>
       <div className="section-photo photo-sky-top">
         <PricingPage />
       </div>
-      <div className="section-solid solid-fade-dark">
+      <div className="section-solid bg-fade-dark">
         <About />
       </div>
       <div className="section-photo photo-sky-top fade-to-footer">

@@ -26,23 +26,23 @@ const steps = [
 export const Hero: React.FC = () => {
   return (
     <section className="hero">
-      <div className="hero-glow-container">
+      <div className="hero-glow">
         <div className="bg-glow-cyan"></div>
         <div className="bg-glow-purple"></div>
       </div>
       <div className="container" style={{ position: 'relative', zIndex: 1 }}>
         <div className="hero-content">
-          <h1 className="animate-fade-in">
+          <h1 className="fade-in">
             Kirim Barang, Pre-Order <br/> & Jastip Tanpa Ribet
           </h1>
-          <p className="animate-fade-in delay-100" style={{ color: 'var(--color-text-secondary)', fontSize: '1.05rem', maxWidth: '540px', margin: '0 auto 2rem', lineHeight: 1.7 }}>
+          <p className="fade-in delay-100" style={{ color: 'var(--color-text-secondary)', fontSize: '1.05rem', maxWidth: '540px', margin: '0 auto 2rem', lineHeight: 1.7 }}>
             Layanan jasa pengiriman barang, open pre-order, dan penitipan pembelian terpercaya. Cepat, aman, dan transparan dari mana saja ke seluruh Indonesia.
           </p>
           <div className="hero-actions">
-            <Button className="btn-gradient animate-fade-in delay-200" icon={<Icon name="ArrowRight" size={15} />} style={{ padding: '0.65rem 1.35rem', borderRadius: '9999px', fontWeight: 600, fontSize: '0.9rem' }}>
+            <Button className="btn-gradient fade-in delay-200" icon={<Icon name="ArrowRight" size={15} />} style={{ padding: '0.65rem 1.35rem', borderRadius: '9999px', fontWeight: 600, fontSize: '0.9rem' }}>
               Pesan Sekarang
             </Button>
-            <Button variant="secondary" className="animate-fade-in delay-200" style={{ borderRadius: '9999px', fontSize: '0.9rem', padding: '0.65rem 1.35rem' }}>
+            <Button variant="secondary" className="fade-in delay-200" style={{ borderRadius: '9999px', fontSize: '0.9rem', padding: '0.65rem 1.35rem' }}>
               Cek Tarif Ongkir
             </Button>
           </div>

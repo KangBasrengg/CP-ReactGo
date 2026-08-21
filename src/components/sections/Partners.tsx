@@ -14,8 +14,8 @@ export const Partners: React.FC = () => {
         <p style={{ textAlign: 'center', fontSize: '0.8rem', color: 'var(--color-text-primary)', marginBottom: '1.5rem', textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: 600 }}>
           Bekerja sama dengan ekspedisi terpercaya di seluruh Indonesia
         </p>
-        <div className="marquee-container">
-          <div className="marquee-content" style={{ gap: '4rem', paddingRight: '4rem' }}>
+        <div className="marquee-box">
+          <div className="marquee-inner" style={{ gap: '4rem', paddingRight: '4rem' }}>
             {[...partners, ...partners].map((partner, idx) => (
               <div key={idx} style={{ fontSize: '1.25rem', fontWeight: 700, color: 'var(--color-text-primary)', opacity: 0.85, whiteSpace: 'nowrap', letterSpacing: '-0.01em', textShadow: '0 1px 4px rgba(0,0,0,0.1)' }}>
                 {partner}

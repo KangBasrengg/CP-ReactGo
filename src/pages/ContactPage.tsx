@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
-import { useScrollReveal } from '../hooks/useScrollReveal';
+import { useScrollReveal, useStaggerReveal } from '../hooks/useScrollReveal';
 import { Icon } from '../components/Icon';
+import { useLocation } from 'react-router-dom';
 
 export const ContactPage: React.FC = () => {
   const headerRef = useScrollReveal<HTMLDivElement>();
+  const containerRef = useStaggerReveal<HTMLDivElement>();
+  const location = useLocation();
+  const isStandalone = location.pathname !== '/';
   const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -14,7 +18,7 @@ export const ContactPage: React.FC = () => {
   const update = (key: string, value: string) => setFormData(prev => ({ ...prev, [key]: value }));
 
   return (
-    <section className="section-photo fade-to-footer" style={{ padding: '120px 0 80px', minHeight: '100vh' }}>
+    <section className={`page-section ${isStandalone ? "section-photo fade-to-footer" : ""}`} style={{ minHeight: isStandalone ? '100vh' : undefined }}>
       <div className="container">
         <div ref={headerRef} style={{ textAlign: 'center', marginBottom: '3rem' }}>
           <h1 style={{ fontSize: '2.75rem', marginBottom: '1rem' }}>Hubungi Kami</h1>
@@ -25,21 +29,16 @@ export const ContactPage: React.FC = () => {
 
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', maxWidth: '900px', margin: '0 auto' }}>
           {/* Contact info */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+          <div ref={containerRef} className="flex-col">
             {[
               { icon: 'Mail', label: 'Email', value: 'hello@placeholder-name.dev' },
               { icon: 'Phone', label: 'WhatsApp', value: '+62 812-3456-7890' },
               { icon: 'MapPin', label: 'Kantor', value: 'Jakarta Selatan, Indonesia' },
               { icon: 'Clock', label: 'Jam Operasional', value: 'Senin - Sabtu, 08:00 - 20:00 WIB' },
             ].map((item, i) => {
-              const ref = useScrollReveal<HTMLDivElement>();
               return (
-                <div ref={ref} key={i} className="glass-card" style={{ padding: '1.5rem', display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                  <div style={{
-                    width: '40px', height: '40px', borderRadius: '12px',
-                    background: 'rgba(232,162,56,0.1)', border: '1px solid rgba(232,162,56,0.15)',
-                    display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0
-                  }}>
+                <div key={i} className="glass-card" style={{ padding: '1.5rem', display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                  <div className="icon-box">
                     <Icon name={item.icon} size={18} color="var(--color-accent-amber)" />
                   </div>
                   <div>
@@ -53,16 +52,16 @@ export const ContactPage: React.FC = () => {
 
           {/* Contact form */}
           <div className="glass-card" style={{ padding: '2rem' }}>
-            <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+            <form onSubmit={handleSubmit} noValidate style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
               <div>
                 <label style={{ display: 'block', fontSize: '0.8rem', color: 'var(--color-text-secondary)', marginBottom: '0.4rem', fontWeight: 500 }}>Nama</label>
-                <div className="glass-input-wrapper">
+                <div className="input-box">
                   <input type="text" value={formData.name} onChange={(e) => update('name', e.target.value)} placeholder="Nama lengkap" className="glass-input" required />
                 </div>
               </div>
               <div>
                 <label style={{ display: 'block', fontSize: '0.8rem', color: 'var(--color-text-secondary)', marginBottom: '0.4rem', fontWeight: 500 }}>Email</label>
-                <div className="glass-input-wrapper">
+                <div className="input-box">
                   <input type="email" value={formData.email} onChange={(e) => update('email', e.target.value)} placeholder="email@contoh.com" className="glass-input" required />
                 </div>
               </div>

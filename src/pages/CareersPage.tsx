@@ -1,5 +1,5 @@
 import React from 'react';
-import { useScrollReveal } from '../hooks/useScrollReveal';
+import { useScrollReveal, useStaggerReveal } from '../hooks/useScrollReveal';
 import { Icon } from '../components/Icon';
 import { ContentPage } from './ContentPage';
 
@@ -11,13 +11,13 @@ const positions = [
 ];
 
 export const CareersPage: React.FC = () => {
+  const containerRef = useStaggerReveal<HTMLDivElement>();
   return (
     <ContentPage badge="KARIR" badgeIcon="Briefcase" title="Bergabung bersama kami" subtitle="Kami mencari orang-orang yang bersemangat untuk membangun layanan pengiriman terbaik di Indonesia.">
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+      <div ref={containerRef} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
         {positions.map((pos, i) => {
-          const ref = useScrollReveal<HTMLDivElement>();
           return (
-            <div ref={ref} key={i} className="glass-card" style={{ padding: '1.5rem 2rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem' }}>
+            <div key={i} className="glass-card" style={{ padding: '1.5rem 2rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem' }}>
               <div>
                 <h3 style={{ fontSize: '1.05rem', marginBottom: '0.3rem' }}>{pos.title}</h3>
                 <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>

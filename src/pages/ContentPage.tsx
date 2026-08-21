@@ -2,6 +2,8 @@ import React from 'react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { Icon } from '../components/Icon';
 
+import { useLocation } from 'react-router-dom';
+
 /**
  * Reusable simple page layout for content pages (Blog, Careers, Legal, etc.)
  */
@@ -13,11 +15,13 @@ export const ContentPage: React.FC<{
   children: React.ReactNode;
 }> = ({ badge, badgeIcon, title, subtitle, children }) => {
   const headerRef = useScrollReveal<HTMLDivElement>();
+  const location = useLocation();
+  const isStandalone = location.pathname !== '/';
 
   return (
-    <section className="section-photo fade-to-footer" style={{ padding: '120px 0 80px', minHeight: '100vh' }}>
+    <section className={`page-section ${isStandalone ? "section-photo fade-to-footer" : ""}`} style={{ minHeight: isStandalone ? '100vh' : undefined }}>
       <div className="container" style={{ maxWidth: '800px' }}>
-        <div ref={headerRef} style={{ textAlign: 'center', marginBottom: '3rem' }}>
+        <div ref={headerRef} className="page-header">
           {badge && (
             <div style={{
               display: 'inline-flex', alignItems: 'center', gap: '0.4rem',

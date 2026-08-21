@@ -1,5 +1,5 @@
 import React from 'react';
-import { useScrollReveal } from '../hooks/useScrollReveal';
+import { useScrollReveal, useStaggerReveal } from '../hooks/useScrollReveal';
 import { Icon } from '../components/Icon';
 import { ContentPage } from './ContentPage';
 
@@ -11,13 +11,13 @@ const posts = [
 ];
 
 export const BlogPage: React.FC = () => {
+  const containerRef = useStaggerReveal<HTMLDivElement>();
   return (
     <ContentPage badge="BLOG" badgeIcon="BookOpen" title="Tips & Artikel" subtitle="Panduan, tips pengiriman, dan insight seputar pre-order dan jastip dari tim kami.">
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+      <div ref={containerRef} className="flex-col">
         {posts.map((post, i) => {
-          const ref = useScrollReveal<HTMLDivElement>();
           return (
-            <div ref={ref} key={i} className="glass-card" style={{ padding: '2rem', cursor: 'pointer' }}>
+            <div key={i} className="glass-card" style={{ padding: '2rem', cursor: 'pointer' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.75rem', flexWrap: 'wrap' }}>
                 <span style={{
                   padding: '0.15rem 0.6rem', borderRadius: '9999px', fontSize: '0.7rem', fontWeight: 600,
